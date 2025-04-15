@@ -1,0 +1,752 @@
+/*RESET*/
+*,
+*::before,
+*::after {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*BASE*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/*VARIABLES*/
+:root {
+  /*colores corporativos*/
+  --azul-claro: #00bfff;
+  --azul-oscuro: #000943;
+  --amarillo: #e7c400;
+  --negro: #090a10;
+  --blanco: #ffffff;
+
+  /* Fuentes */
+  --fuente-titulo: "Inter", sans-serif;
+  --fuente-titulo-grande: "Miriam Libre", sans-serif;
+  --fuente-subtitulo: "Montserrat", sans-serif;
+  --fuente-texto-regular: "Montserrat", sans-serif;
+  --fuente-texto-descriptivo: "Montserrat", sans-serif;
+
+  /* Tamaños */
+  --tam-titulo: 1.938em;
+  --tam-titulo-grande: 2.438em;
+  --tam-subtitulo: 1.563em;
+  --tam-texto-regular: 1.25em;
+  --tam-texto-descriptivo: 1em;
+
+  /* Pesos */
+  --peso-titulo-grande: 700;
+  --peso-titulo: 500;
+  --peso-subtitulo: 500;
+  --peso-texto-regular: 400;
+  --peso-texto-descriptivo: 400;
+
+  /*Boton CTA*/
+  --bg-cta-btn: var(--amarillo);
+  --color-cta-btn: var(--negro);
+  --b-cta-btn: 0.063em;
+  --br-cta-btn: 0.4rem;
+  --p-cta-btn: 0.5em 0.75em;
+  --ff-cta-btn: var(--fuente-texto-regular);
+  --fs-cta-btn: var(--tam-texto-descriptivo);
+  --fw-cta-btn: var(--peso-texto-regular);
+  --cursor-cta-btn: pointer;
+  --transition-cta-btn: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+
+  /*Boton color primario*/
+  --bg-prim-btn: transparent;
+  --color-prim-btn: var(--azul-oscuro);
+  --b-prim-btn: 0.063em;
+  --br-prim-btn: 0.4rem;
+  --p-prim-btn: 0.5em 0.75em;
+  --ff-prim-btn: var(--fuente-texto-regular);
+  --fs-prim-btn: var(--tam-texto-descriptivo);
+  --fw-prim-btn: var(--peso-texto-regular);
+  --cursor-prim-btn: pointer;
+  --transition-prim-btn: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+
+  /*Botón color secundario*/
+  --bg-sec-btn: var(--azul-claro);
+  --color-sec-btn: var(--negro);
+  --b-sec-btn: 0.063em;
+  --br-sec-btn: 0.4rem;
+  --p-sec-btn: 0.5em 0.75em;
+  --ff-sec-btn: var(--fuente-texto-regular);
+  --fs-sec-btn: var(--tam-texto-descriptivo);
+  --fw-sec-btn: var(--peso-texto-regular);
+  --cursor-sec-btn: pointer;
+  --transition-cta-btn: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+/*COMPONENTES*/
+/*COMPONENTES DEL HEADER*/
+.header {
+  background-color: var(--negro);
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+}
+
+.logo__image {
+  max-width: 100%;
+  height: auto;
+}
+
+.header__nav-list .header__nav-link {
+  color: var(--blanco);
+  text-align: center;
+}
+
+.nav-link {
+  margin: 0 1rem;
+  font-size: var(--tam-texto-regular);
+  text-align: center;
+}
+
+.header__nav-link {
+  padding: 0;
+}
+
+.header__nav-link:hover {
+  background-color: #b0b3c550;
+  border-radius: 15%;
+}
+
+.header__nav-link:active {
+  color: var(--azul-claro);
+}
+
+.navbar-collapse.show .header__nav-link {
+  font-family: var(--fuente-subtitulo);
+  font-size: var(--tam-subtitulo);
+  font-weight: var(--peso-subtitulo);
+}
+
+/*COMPONENTES DE BOTONES*/
+/*Botón CTA*/
+.btn--cta {
+  background-color: var(--bg-cta-btn);
+  color: var(--color-cta-btn);
+  border: solid var(--b-cta-btn) var(--color-cta-btn);
+  border-radius: var(--br-cta-btn);
+  padding: var(--p-cta-btn);
+  font-family: var(--ff-cta-btn);
+  font-size: var(--fs-cta-btn);
+  font-weight: var(--fw-cta-btn);
+  cursor: var(--cursor-cta-btn);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn--cta:hover {
+  color: var(--negro);
+  background-color: rgba(231, 196, 0, 0.9);
+  border-color: var(--amarillo);
+}
+
+.btn--cta:active,
+.btn--cta.active,
+.show > .btn--cta.dropdown-toggle {
+  color: var(--negro);
+  background-color: rgba(231, 196, 0, 0.5);
+  border-color: rgba(231, 196, 0, 0.4);
+}
+
+/*Botón primario*/
+.btn--primary {
+  background-color: transparent;
+  color: rgb(0, 191, 255);
+  border: solid var(--b-prim-btn) rgb(0, 191, 255);
+  border-radius: var(--br-prim-btn);
+  padding: var(--p-prim-btn);
+  font-family: var(--ff-prim-btn);
+  font-size: var(--fs-prim-btn);
+  font-weight: var(--fw-prim-btn);
+  cursor: var(--cursor-prim-btn);
+  white-space: normal;
+  word-break: break-word;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--primary:hover {
+  color: var(--blanco);
+  background-color: rgba(0, 143, 191, 0.7);
+  border-color: var(--azul-claro);
+}
+
+.btn--primary:active,
+.btn--primary.active,
+.show > .btn--primary.dropdown-toggle {
+  color: var(--negro);
+  background-color: var(--azul-claro);
+  border-color: var(--azul-claro);
+}
+
+/*Botón secundaria*/
+.btn--secondary {
+  background-color: var(--bg-sec-btn);
+  color: var(--color-sec-btn);
+  border: solid var(--b-sec-btn) var(--color-sec-btn);
+  border-radius: var(--br-sec-btn);
+  padding: var(--p-sec-btn);
+  font-family: var(--ff-sec-btn);
+  font-size: var(--fs-sec-btn);
+  font-weight: var(--fw-sec-btn);
+  cursor: var(--cursor-sec-btn);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--secondary:hover {
+  color: var(--negro);
+  background-color: rgba(0, 191, 255, 0.9);
+  border-color: var(--azul-claro);
+}
+
+.btn--secondary:active,
+.btn--secondary.active,
+.show > .btn--secondary.dropdown-toggle {
+  color: var(--negro);
+  background-color: rgba(0, 191, 255, 0.5);
+  border-color: rgba(0, 191, 255, 0.4);
+}
+
+/*COMPONENTES HERO IMAGE INICIO*/
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-image: url(/assets/images/Fondo-pagina-principal-redes.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  max-width: 100%;
+  height: 91vh;
+  border-bottom: solid 6vh var(--amarillo);
+}
+
+.hero__title {
+  color: var(--blanco);
+  font-family: var(--fuente-titulo-grande);
+  font-size: var(--tam-titulo-grande);
+  font-weight: var(--peso-titulo-grande);
+  margin: 1em 3em 1em 3em;
+}
+
+.hero__roles {
+  display: flex;
+  gap: 1.25em;
+  color: var(--blanco);
+  font-family: var(--fuente-subtitulo);
+  font-size: var(--tam-subtitulo);
+  font-weight: var(--peso-subtitulo);
+}
+
+.hero__description {
+  margin: 1em 2em 1em 2em;
+}
+
+.hero__logo-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.hero__logo-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+/*COMPONENTES CARTAS EN GENERAL*/
+.card {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--blanco);
+}
+
+/*COMPONENTES CARDS TEMÁTICAS*/
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: var(--blanco);
+  padding: 0;
+}
+
+.topics__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.topics__card {
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
+.topics__title {
+  font-family: var(--fuente-subtitulo);
+  font-size: var(--tam-subtitulo);
+  font-weight: var(--peso-subtitulo);
+}
+
+.topics__item {
+  font-family: var(--fuente-texto-descriptivo);
+  font-size: var(--tam-texto-descriptivo);
+  font-weight: var(--peso-texto-descriptivo);
+  list-style: none;
+}
+
+.topics__list {
+  padding: 0;
+}
+
+/*COMPONENTE LOGO Y MENSAJE*/
+.landing__logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 40vh;
+  padding: 1rem;
+}
+
+.landing__logo-img {
+  max-width: 320px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.landing__logo-section h3 {
+  font-family: var(--fuente-titulo-grande);
+  font-weight: var(--peso-titulo-grande);
+  font-size: var(--tam-titulo-grande);
+}
+
+/*COMPONENTE CARTAS BENEFICIOS*/
+.benefits__card-title {
+  font-family: var(--fuente-subtitulo);
+  font-size: var(--tam-subtitulo);
+  font-weight: var(--peso-subtitulo);
+  text-align: center;
+}
+
+.benefits__card-text {
+  font-family: var(--fuente-texto-regular);
+  font-size: var(--tam-texto-regular);
+  font-weight: var(--peso-texto-regular);
+}
+
+.benefits__cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2em 2em 5em 2em;
+  border-bottom: solid 0.09em var(--blanco);
+}
+
+.benefits__card-img {
+  margin: 1em;
+}
+
+/*COMPONENTES DEL FOOTER*/
+.footer {
+  font-family: var(--fuente-texto-descriptivo);
+  font-size: var(--tam-texto-descriptivo);
+  font-weight: var(--peso-texto-descriptivo);
+  padding-left: 2.5em;
+}
+
+.footer__content {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+.footer__link {
+  color: var(--blanco);
+}
+
+/*COMPONENTES MODAL*/
+.bi {
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+.modal {
+  background-image: url(/assets/images/fondo-modales.webp);
+}
+
+.modal__form-container h1 {
+  color: var(--amarillo);
+  font-family: var(--tam-titulo-grande);
+  font-size: var(--tam-titulo-grande);
+  font-weight: var(--peso-titulo-grande);
+}
+
+.modal__description {
+  font-family: var(--tam-subtitulo);
+  font-size: var(--tam-texto-regular);
+  font-weight: var(--peso-subtitulo);
+  line-height: 1.2em;
+  margin-bottom: 0;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: var(--blanco);
+  min-height: 600px;
+}
+
+.modal-content .row {
+  flex: 1;
+  height: 100%;
+}
+
+.modal__close-container {
+  display: flex;
+  justify-content: end;
+  padding-top: 1rem;
+  padding: 0;
+  color: var(--blanco);
+}
+
+.btn-close {
+  display: flex;
+  color: var(--blanco);
+  font-size: var(--tam-texto-regular);
+}
+
+.form-control {
+  background-color: #1a1a1a;
+  color: var(--blanco);
+}
+
+.form-floating > label {
+  color: var(--blanco);
+}
+
+.modal-header,
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__title,
+.modal__description {
+  text-align: center;
+}
+
+.form-login__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--fuente-texto-descriptivo);
+  font-weight: var(--peso-texto-descriptivo);
+  font-size: var(--tam-texto-descriptivo);
+}
+
+.form-login__buttons,
+.form-signup__buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.form-login__social-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup__info-text {
+  font-family: var(--fuente-titulo);
+  font-size: var(--tam-subtitulo);
+  font-weight: var(--peso-titulo);
+  line-height: 1em;
+}
+
+.modal__form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.profile-icon {
+  color: white;
+}
+
+/*RESPONSIVE*/
+@media (max-width: 575.98px) {
+  .btn--cta,
+  .btn--secondary,
+  .btn--primary {
+    font-size: var(--tam-texto-descriptivo);
+  }
+
+  .logo__image {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .header__actions {
+    flex-direction: column;
+  }
+
+  .navbar-collapse.show .header__nav-link {
+    font-family: var(--fuente-subtitulo);
+    font-size: var(--tam-texto-regular);
+    font-weight: var(--peso-subtitulo);
+    padding: 0;
+  }
+
+  .hero__title {
+    font-size: var(--tam-texto-regular);
+    font-weight: var(--peso-subtitulo);
+    margin: 1em;
+  }
+
+  .hero__roles {
+    flex-direction: column;
+    font-size: var(--tam-texto-descriptivo);
+  }
+
+  .nav-link {
+    margin: 0.5em 0;
+  }
+
+  .topics__card {
+    width: 100%;
+  }
+
+  .benefits__card-title {
+    font-family: var(--fuente-texto-regular);
+    font-size: var(--tam-texto-regular);
+    font-weight: var(--peso-texto-regular);
+  }
+
+  .benefits__card-text {
+    font-family: var(--fuente-texto-descriptivo);
+    font-size: var(--tam-texto-descriptivo);
+    font-weight: var(--peso-texto-descriptivo);
+  }
+
+  .landing__logo-section h3 {
+    font-family: var(--fuente-titulo-grande);
+    font-size: var(--tam-subtitulo);
+    font-weight: var(--peso-subtitulo);
+  }
+
+  .footer {
+    font-size: 0.8em;
+  }
+}
+
+/* aplican cuando el ancho de la pantalla está entre 576px y 767.98px*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .logo__image {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .hero__title {
+    font-size: var(--tam-subtitulo);
+    font-weight: var(--peso-subtitulo);
+  }
+
+  .hero__roles {
+    font-size: var(--tam-texto-descriptivo);
+  }
+
+  .header__nav-item:nth-child(3) .header__nav-link {
+    margin-bottom: 0.5em;
+  }
+
+  .topics__card {
+    width: 100%;
+  }
+
+  .benefits__card-title {
+    font-family: var(--fuente-texto-regular);
+    font-size: var(--tam-texto-regular);
+    font-weight: var(--peso-texto-regular);
+  }
+
+  .benefits__card-text {
+    font-family: var(--fuente-texto-descriptivo);
+    font-size: var(--tam-texto-descriptivo);
+    font-weight: var(--peso-texto-descriptivo);
+  }
+
+  .landing__logo-section h3 {
+    font-size: var(--tam-titulo);
+    font-weight: var(--peso-titulo);
+  }
+}
+
+/*aplican cuando el ancho de la pantalla está entre 768px y 991.98px. */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero__title {
+    font-size: var(--tam-titulo);
+  }
+
+  .hero__roles {
+    font-size: var(--tam-texto-regular);
+  }
+
+  .header__nav-item:nth-child(3) .header__nav-link {
+    margin-bottom: 0.5em;
+  }
+
+  .topics__card {
+    width: 100%;
+  }
+
+  .topics__title {
+    font-family: var(--fuente-titulo);
+    font-size: var(--tam-titulo);
+    font-weight: var(--peso-titulo);
+  }
+
+  .topics__item {
+    font-family: var(--fuente-texto-regular);
+    font-size: var(--tam-texto-regular);
+    font-weight: var(--peso-texto-regular);
+    list-style: none;
+  }
+
+  .benefits__card-title {
+    font-family: var(--fuente-texto-regular);
+    font-size: var(--tam-texto-regular);
+    font-weight: var(--peso-texto-regular);
+  }
+
+  .benefits__card-text {
+    font-family: var(--fuente-texto-descriptivo);
+    font-size: var(--tam-texto-descriptivo);
+    font-weight: var(--peso-texto-descriptivo);
+  }
+}
+
+/*aplican cuando el ancho de la pantalla está entre 992px y 1199.98px. */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .header__nav-link {
+    margin: 0 1.25rem;
+    font-family: var(--fuente-subtitulo);
+    font-size: var(--tam-subtitulo);
+    font-weight: var(--peso-subtitulo);
+  }
+
+  .hero__title {
+    font-size: var(--tam-titulo);
+  }
+
+  .nav-link {
+    margin: 0 1rem;
+    font-size: var(--tam-subtitulo);
+  }
+
+  .topics__card {
+    flex: 1 1 calc(50% - 1rem); /* permite crecer o reducirse con base en ese 50% ajustado.*/
+    max-width: calc(
+      50% - 1rem
+    ); /* limita su tamaño máximo para que no se desborde.*/
+  }
+
+  .topics__item {
+    font-family: var(--fuente-texto-regular);
+    font-size: var(--tam-texto-regular);
+    font-weight: var(--peso-texto-regular);
+    list-style: none;
+  }
+
+  .topics__title {
+    font-family: var(--fuente-subtitulo);
+    font-size: var(--tam-subtitulo);
+    font-weight: var(--peso-subtitulo);
+  }
+}
+
+/* xl: ≥1200px */
+@media (min-width: 1200px) {
+  .header__nav-link {
+    margin: 0 1.25rem;
+    font-family: var(--fuente-subtitulo);
+    font-size: var(--tam-subtitulo);
+    font-weight: var(--peso-subtitulo);
+  }
+
+  .hero__roles {
+    font-size: var(--tam-subtitulo);
+  }
+
+  .topics__card {
+    flex: 1 1 calc(25% - 1.5rem); /*Cada tarjeta toma el 25% del ancho total, menos un margen de 1.5rem (esto ayuda a que quepan 4 por fila, considerando los espacios entre ellas).*/
+    max-width: calc(
+      25% - 1.5rem
+    ); /*flex permite ajustar su tamaño y max-width impone el límite superior.*/
+  }
+
+  .topics__title {
+    font-family: var(--fuente-subtitulo);
+    font-size: var(--tam-subtitulo);
+    font-weight: var(--peso-subtitulo);
+  }
+
+  .topics__item {
+    font-family: var(--fuente-texto-regular);
+    font-size: var(--tam-texto-regular);
+    font-weight: var(--peso-texto-regular);
+    list-style: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--negro);
+    color: var(--blanco);
+  }
+}
